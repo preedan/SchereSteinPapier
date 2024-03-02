@@ -118,6 +118,10 @@
 	<blockquote id="quote15">
         "I have a dream that one day this nation will rise up and live out the true meaning of this game." - Martin Luther King
     </blockquote>
+
+	<blockquote id="quote16">
+        "Ein Stein." - Albert Einstein
+    </blockquote>
 <script>
     // Hide all quotes initially
     document.querySelectorAll('blockquote').forEach(quote => {
@@ -125,7 +129,7 @@
     });
 
     // Set a random quote index initially
-    let currentQuoteIndex = Math.floor(Math.random() * 15) + 1;
+    let currentQuoteIndex = Math.floor(Math.random() * 16) + 1;
 
     // Show the initial random quote
     const initialQuote = document.getElementById(`quote${currentQuoteIndex}`);
@@ -138,7 +142,7 @@
         currentQuote.style.display = 'none';
 
         // Move to the next quote
-        currentQuoteIndex = (currentQuoteIndex % 15) + 1;
+        currentQuoteIndex = (currentQuoteIndex % 16) + 1;
 
         // Show the next quote
         const nextQuote = document.getElementById(`quote${currentQuoteIndex}`);
