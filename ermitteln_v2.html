@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schere, Stein, Papier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            font-family: 'Baloo 2', cursive;
+            background-color: #f0f0f0;
+            transition: background-color 0.5s ease;
+        }
+        .back-link {
+            font-size: 0.8em; /* Matched font size for consistency */
+            text-align: center;
+            background-color: #267bb5;
+            color: white;
+            padding: 6px 12px; /* Consistent padding to avoid shrinking */
+            border-radius: 5px;
+            text-decoration: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            border: 0; /* Explicitly remove any border */
+            box-shadow: none; /* Remove any box shadow that might mimic a border */
+        }
+
+        h2, p {
+            text-align: center;
+            margin: 10px 0;
+        }
+        h1 {
+            font-size: 2em; /* Ensure font size is consistent */
+            text-align: center;
+            margin-top: 20px; /* Increased top margin to position the header lower */
+            margin-bottom: 20px; /* Adjust bottom margin as needed */
+        }
+        button {
+            background-color: #267bb5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: 'Baloo 2', cursive;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+        button:hover {
+            background-color: #1a5d8b;
+        }
+        .media-container {
+            display: none;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
+        img, video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+    .back-link {
+        font-size: 0.8em; /* Keep font size unchanged for responsiveness */
+        padding: 6px 12px; /* Keep padding unchanged to maintain size */
+    }
+}
+    </style>
+</head>
+<body>
+    <a href="https://raw.githubusercontent.com/preedan/SchereSteinPapier/main/startpage_v2.html?token=GHSAT0AAAAAACPAK6PVEQ4JNUFRYQZO65Q2ZPENGAQ" class="back-link">Zurück zur Startseite</a>
+    <h1>Variante ermitteln</h1>
+    <button id="startButton" onclick="startImageRotation()">Start</button>
+    <div class="media-container" id="mediaContainer">
+        <h2 id="variantName"></h2>
+        <img id="variantImage" src="" alt="Variant image" style="display:none;">
+        <video id="variantVideo" controls style="display:none;">
+            <source src="" type="video/mp4">
+        </video>
+        <p id="variantDescription"></p>  
+    </div>
+
+    <script>
+        const contentList = [
+            { type: "image", source: "Der%20Klassiker-min.JPG", text: "Der Klassiker", description: "Es wird eine normale Runde SSP gespielt." },
+            { type: "image", source: "Der%20linke%20Hund-min.JPG", text: "Der linke Hund", description: "Es wird eine Runde SSP mit der linken Hand gespielt." },
+            { type: "image", source: "Die%20Hantel%20Variante-min.JPG", text: "Die Hantel Variante", description: "Der Bizeps wird präsentiert. Ansonsten eine normale SSP Runde." },
+            { type: "image", source: "Double%20Trouble-min.JPG", text: "Double Trouble", description: "Es wird um eine doppelte Runde gespielt. Dazu werden beide Hände verwendet. Beide Hände zeigen das gleiche Symbol. Falls das irgendwo nicht der Fall sein sollte, hat diese Person automatisch verloren." },
+            { type: "image", source: "Der%20Kreuzer-min.jpg", text: "Der Kreuzer", description: "Hände kreuzen und los gehts. Es geht nur um eine Runde, beide Hände müssen das gleiche Symbol zeigen. Falls das irgendwo nicht der Fall sein sollte, hat diese Person automatisch verloren."},
+            { type: "image", source: "Der%20blinde%20Bandit-min.JPG", text: "Der blinde Bandit", description: "Bei dieser Version wird eine zusätzliche Person als Schiedsrichter benötigt! Alle Personen halten sich mit einer Hand die Augen zu. Mit der anderen Hand wird gespielt. Die Gewinner der jewiligen Runde werden vom Schiedsrichter berührt. Der Schiedsrichter verkündet den Start jeder Runde und das Ende des Spiels." },
+            { type: "image", source: "Der%20Captain-min.jpg", text: "Der Captain", description: "Normale Runde SSP in der Captain Morgan Pose." },
+            { type: "video", source: "Die%20japanische%20Variante_min.mp4", text: "Die japanische Variante", description: "Für diese Variante braucht es einen Schiedsrichter. Sollte es keinen geben, muss zuerst gespielt werden bis eine Person gewonnen hat und somit den Schiedsrichter übernehmen kann. Wie im Video ersichtlich ist diese Variante emotional, schnell & zackig. Verzögerungen sollte es nicht geben." },
+	        { type: "image", source: "Der%20Switcher-min.JPG", text: "Der Switcher", description: "Papier, Stein, Schere - der Spieß wird umgedreht. Der eigentliche Verlierer gewinnt." },
+            { type: "image", source: "Das%20Rodeo-min.jpg", text: "Das Rodeo", description: "Normales SSP, aber man spielt für seinen linken Nachbarn." },
+            { type: "image", source: "Der%20T-REX-min.jpg", text: "Der T-Rex", description: "Die Hand schaut nur minimal aus dem Kleidungsstück heraus. Wie ein T-Rex." },
+	        { type: "image", source: "Die%20tschechische%20Variante-min.JPG", text: "Die tschechische Variante", description: "Scherski, Steinski, Papierski wird statt dem normalen Schere, Stein, Papier gesagt. Ganz wichtig - Akzent nicht vergessen." },
+            { type: "image", source: "Die%20italienische%20Variante-min.JPG", text: "Die italienische Variante", description: "Schere, Steine, Papiere wird statt dem normalen Schere, Stein, Papier gesagt. Ganz wichtig - Akzent nicht vergessen. Zusätzlich muss die Hand am Tisch bleiben und zum Italiener werden." },
+            { type: "image", source: "Schere%20Stein%20Extreme-min.JPG", text: "Schere, Stein Extreme", description: "Gespielt wird nur mit Schere und Stein. Durch Zufall wird entschieden ob Stein oder Schere gewinnt. Verwendet jemand Papier hat dieser Teilnehmer automatisch verloren und bezahlt mit einer Runde Getränken und Demütigung durch die Mitspieler." },
+	        { type: "image", source: "Kreiz-Deifi%20Delüx-min.jpg", text: "Kreiz-Deifi Delüx", description: "Achtung: Diese Variante ist nicht für Einsteiger geeignet. Kombination aus Kreuzer und Rodeo. Mit der rechten Hand spielt man ein 1:1 gegen den linken Nachbar. Mit der linken Hand gleichzeitig ein 1:1 gegen den rechten Nachbar. Es können auch unterschiedliche Symbole mit beiden Händen genommen werden. Gewinnt eine Hand, scheidet diese aus. Die letzte Hand bezahlt. Wichtig ist beim Spielen immer Kreiz-Deifi Delüx zu sagen." },
+	        { type: "image", source: "Die%20Muehle.jpeg", text: "Die Mühle", description: "Die Hände werden in Stein Form gestapelt. Anstelle des üblichen „Schere, Stein, Papier“, sagen die Spieler „Kaffee reiben, Kaffee reiben, Schere, Stein, Papier“ und zeigen ihr gewähltes Symbol. Die Entscheidung erfolgt von der untersten Hand nach oben. Die Hand, die gewinnt, bleibt im Spiel, während die Verlierer-Hand ausscheidet (Switcher)." }        
+	];
+
+    let currentIndex = 0;
+    let intervalId;
+    let rotationInProgress = false;
+
+    function startImageRotation() {
+        if (rotationInProgress) return;
+        rotationInProgress = true;
+        const icons = ["🪨", "✂️", "📄"];
+        let iconIndex = 0;
+
+        document.getElementById("startButton").disabled = true; // Disable button to prevent multiple clicks
+
+        // Immediately hide the mediaContainer when rotation starts
+        document.getElementById("mediaContainer").style.display = "none";
+
+        intervalId = setInterval(() => {
+            document.getElementById("startButton").textContent = icons[iconIndex % icons.length];
+            iconIndex++;
+        }, 200);
+
+        setTimeout(() => {
+            clearInterval(intervalId);
+            const selectedVariantIndex = Math.floor(Math.random() * contentList.length);
+            displaySelectedVariant(selectedVariantIndex);
+            document.getElementById("startButton").textContent = "Start";
+            document.getElementById("startButton").disabled = false; // Re-enable button
+            rotationInProgress = false;
+        }, 5000); // Adjust time as needed
+    }
+
+    function displaySelectedVariant(index) {
+        const variant = contentList[index];
+        document.getElementById("variantName").textContent = variant.text;
+        document.getElementById("variantDescription").textContent = variant.description;
+        if (variant.type === "image") {
+            document.getElementById("variantImage").src = variant.source;
+            document.getElementById("variantImage").style.display = "block";
+            document.getElementById("variantVideo").style.display = "none";
+        } else if (variant.type === "video") {
+            document.getElementById("variantVideo").querySelector("source").src = variant.source;
+            document.getElementById("variantVideo").load(); // Important to reload the video element to update the source
+            document.getElementById("variantVideo").style.display = "block";
+            document.getElementById("variantImage").style.display = "none";
+        }
+        document.getElementById("mediaContainer").style.display = "block"; // Show the container after the rotation ends and a variant is selected
+    }
+</script>
+</body>
+</html>
