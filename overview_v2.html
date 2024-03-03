@@ -6,27 +6,32 @@
     <title>Schere, Stein, Papier</title>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
+         body {
             padding: 20px;
-            padding-top: 60px; /* Erhöht den oberen Abstand, um Platz für den Button zu schaffen */
             font-family: 'Baloo 2', cursive;
             background-color: #f0f0f0;
             transition: background-color 0.5s ease;
         }
-        .back-link {
-            font-size: 0.9em;
-            display: inline-block;
+        h1 {
+            font-size: 2em; /* Ensure font size is consistent */
             text-align: center;
-            margin: 20px 0;
+            margin-top: 20px; /* Increased top margin to position the header lower */
+            margin-bottom: 20px; /* Adjust bottom margin as needed */
+        }
+        .back-link {
+            font-size: 0.8em; /* Matched font size for consistency */
+            text-align: center;
             background-color: #267bb5;
             color: white;
-            padding: 8px 16px;
+            padding: 6px 12px; /* Consistent padding to avoid shrinking */
             border-radius: 5px;
             text-decoration: none;
-            position: fixed; /* Geändert von 'absolute' zu 'fixed', um es immer oben links anzuzeigen */
-            top: 20px;
-            left: 20px;
-            z-index: 1000; /* Stellt sicher, dass der Button über anderen Elementen liegt */
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            border: 0; /* Explicitly remove any border */
+            box-shadow: none; /* Remove any box shadow that might mimic a border */
         }
         .title, .additional-variants-title {
             text-align: center;
@@ -41,7 +46,7 @@
         }
         .variant-container, .additional-variant-container {
             background: #ffffff;
-            padding: 20px;
+            padding: 10px;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             text-align: center;
@@ -50,15 +55,20 @@
             max-width: 100%;
             height: auto;
             border-radius: 5px;
+            margin-bottom: 0px;
         }
         h2 {
             font-size: 1.5em;
             margin-bottom: 0.5em;
+            margin-top: 0px;
+            margin-bottom: 10px;
         }
         p {
             font-size: 1em;
             color: #555;
             text-align: justify;
+            margin-top: 0px;
+            margin-bottom: 0px;
         }
         .additional-variants-title {
             font-size: 2em;
@@ -71,11 +81,9 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                padding-top: 80px; /* Erhöht den Abstand auf kleineren Bildschirmen */
-            }
+
             .back-link {
-                font-size: 0.8em; /* Verkleinert den Button auf kleineren Bildschirmen */
+                font-size: 0.8em;
                 padding: 6px 12px;
             }
         }
@@ -83,7 +91,7 @@
 </head>
 <body>
     <a href="https://raw.githubusercontent.com/preedan/SchereSteinPapier/main/startpage_v2.html?token=GHSAT0AAAAAACPAK6PVEQ4JNUFRYQZO65Q2ZPENGAQ" class="back-link">Zurück zur Startseite</a>
-    <h1 class="title">Schere, Stein, Papier - Varianten</h1>
+    <h1 class="title">Varianten Übersicht</h1>
     <div class="variants-grid">
         <!-- Main variant 1 -->
         <div class="variant-container">
