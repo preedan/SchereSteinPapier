@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schere, Stein, Papier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            padding-top: 60px; /* Erhöht den oberen Abstand, um Platz für den Button zu schaffen */
+            font-family: 'Baloo 2', cursive;
+            background-color: #f0f0f0;
+            transition: background-color 0.5s ease;
+        }
+        .back-link {
+            font-size: 0.9em;
+            display: inline-block;
+            text-align: center;
+            margin: 20px 0;
+            background-color: #267bb5;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            position: fixed; /* Geändert von 'absolute' zu 'fixed', um es immer oben links anzuzeigen */
+            top: 20px;
+            left: 20px;
+            z-index: 1000; /* Stellt sicher, dass der Button über anderen Elementen liegt */
+        }
+        .title, .additional-variants-title {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        .variants-grid, .additional-variants {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+        .variant-container, .additional-variant-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        img, video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1em;
+            color: #555;
+            text-align: justify;
+        }
+        .additional-variants-title {
+            font-size: 2em;
+            color: #267bb5;
+            margin-top: 50px;
+        }
+        .additional-variant-container {
+            padding: 15px;
+            background: #e7eff6;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px; /* Erhöht den Abstand auf kleineren Bildschirmen */
+            }
+            .back-link {
+                font-size: 0.8em; /* Verkleinert den Button auf kleineren Bildschirmen */
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://raw.githubusercontent.com/preedan/SchereSteinPapier/main/startpage_v2.html?token=GHSAT0AAAAAACPAK6PVEQ4JNUFRYQZO65Q2ZPENGAQ" class="back-link">Zurück zur Startseite</a>
+    <h1 class="title">Schere, Stein, Papier - Varianten</h1>
+    <div class="variants-grid">
+        <!-- Main variant 1 -->
+        <div class="variant-container">
+            <h2>Der Klassiker</h2>
+            <img src="Der%20Klassiker-min.JPG" alt="Der Klassiker">
+            <p>Es wird eine normale Runde SSP gespielt.</p>
+        </div>
+        <!-- Main variant 2 -->
+        <div class="variant-container">
+            <h2>Der linke Hund</h2>
+            <img src="Der%20linke%20Hund-min.JPG" alt="Der linke Hund">
+            <p>Es wird eine Runde SSP mit der linken Hand gespielt.</p>
+        </div>
+        <!-- Variant 3 -->
+        <div class="variant-container">
+            <h2>Die Hantel Variante</h2>
+            <img src="Die%20Hantel%20Variante-min.JPG" alt="Die Hantel Variante">
+            <p>Der Bizeps wird präsentiert. Ansonsten eine normale SSP Runde.</p>
+        </div>
+
+        <!-- Variant 4 -->
+        <div class="variant-container">
+            <h2>Double Trouble</h2>
+            <img src="Double%20Trouble-min.JPG" alt="Double Trouble">
+            <p>Es wird um eine doppelte Runde gespielt. Dazu werden beide Hände verwendet. Beide Hände zeigen das gleiche Symbol. Falls das irgendwo nicht der Fall sein sollte, hat diese Person automatisch verloren.</p>
+        </div>
+
+        <!-- Variant 5 -->
+        <div class="variant-container">
+            <h2>Der Kreuzer</h2>
+            <img src="Der%20Kreuzer-min.jpg" alt="Der Kreuzer">
+            <p>Hände kreuzen und los gehts. Es geht nur um eine Runde, beide Hände müssen das gleiche Symbol zeigen. Falls das irgendwo nicht der Fall sein sollte, hat diese Person automatisch verloren.</p>
+        </div>
+
+        <!-- Variant 6 -->
+        <div class="variant-container">
+            <h2>Der blinde Bandit</h2>
+            <img src="Der%20blinde%20Bandit-min.JPG" alt="Der blinde Bandit">
+            <p>Bei dieser Version wird eine zusätzliche Person als Schiedsrichter benötigt! Alle Personen halten sich mit einer Hand die Augen zu. Mit der anderen Hand wird gespielt. Die Gewinner der jeweiligen Runde werden vom Schiedsrichter berührt. Der Schiedsrichter verkündet den Start jeder Runde und das Ende des Spiels.</p>
+        </div>
+
+        <!-- Variant 7 -->
+        <div class="variant-container">
+            <h2>Der Captain</h2>
+            <img src="Der%20Captain-min.jpg" alt="Der Captain">
+            <p>Normale Runde SSP in der Captain Morgan Pose.</p>
+        </div>
+
+        <!-- Variant 9 -->
+        <div class="variant-container">
+            <h2>Die japanische Variante</h2>
+            <video controls>
+                <source src="Die%20japanische%20Variante_min.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Für diese Variante braucht es einen Schiedsrichter. Sollte es keinen geben, muss zuerst gespielt werden bis eine Person gewonnen hat und somit den Schiedsrichter übernehmen kann. Wie im Video ersichtlich ist diese Variante emotional, schnell & zackig. Verzögerungen sollte es nicht geben.</p>
+        </div>
+
+        <!-- Variant 10 -->
+        <div class="variant-container">
+            <h2>Der Switcher</h2>
+            <img src="Der%20Switcher-min.JPG" alt="Der Switcher">
+            <p>Papier, Stein, Schere - der Spieß wird umgedreht. Der eigentliche Verlierer gewinnt.</p>
+        </div>
+
+        <!-- Variant 11 -->
+        <div class="variant-container">
+            <h2>Das Rodeo</h2>
+            <img src="Das%20Rodeo-min.jpg" alt="Das Rodeo">
+            <p>Normales SSP, aber man spielt für seinen linken Nachbarn.</p>
+        </div>
+
+        <!-- Variant 12 -->
+        <div class="variant-container">
+            <h2>Der T-Rex</h2>
+            <img src="Der%20T-REX-min.jpg" alt="Der T-Rex">
+            <p>Die Hand schaut nur minimal aus dem Kleidungsstück heraus. Wie ein T-Rex.</p>
+        </div>
+
+        <!-- Variant 13 -->
+        <div class="variant-container">
+            <h2>Die tschechische Variante</h2>
+            <img src="Die%20tschechische%20Variante-min.JPG" alt="Die tschechische Variante">
+            <p>Scherski, Steinski, Papierski wird statt dem normalen Schere, Stein, Papier gesagt. Ganz wichtig - Akzent nicht vergessen.</p>
+        </div>
+
+        <!-- Variant 14 -->
+        <div class="variant-container">
+            <h2>Die italienische Variante</h2>
+            <img src="Die%20italienische%20Variante-min.JPG" alt="Die italienische Variante">
+            <p>Schere, Steine, Papiere wird statt dem normalen Schere, Stein, Papier gesagt. Ganz wichtig - Akzent nicht vergessen. Zusätzlich muss die Hand am Tisch bleiben und zum Italiener werden.</p>
+        </div>
+
+        <!-- Variant 15 -->
+        <div class="variant-container">
+            <h2>Schere, Stein Extreme</h2>
+            <img src="Schere%20Stein%20Extreme-min.JPG" alt="Schere, Stein Extreme">
+            <p>Gespielt wird nur mit Schere und Stein. Durch Zufall wird entschieden ob Stein oder Schere gewinnt. Verwendet jemand Papier hat dieser Teilnehmer automatisch verloren und bezahlt mit einer Runde Getränken und Demütigung durch die Mitspieler.</p>
+        </div>
+
+        <!-- Variant 16 -->
+        <div class="variant-container">
+            <h2>Kreiz-Deifi Delüx</h2>
+            <img src="Kreiz-Deifi%20Delüx-min.jpg" alt="Kreiz-Deifi Delüx">
+            <p>Achtung: Diese Variante ist nicht für Einsteiger geeignet. Kombination aus Kreuzer und Rodeo. Mit der rechten Hand spielt man ein 1:1 gegen den linken Nachbar. Mit der linken Hand gleichzeitig ein 1:1 gegen den rechten Nachbar. Es können auch unterschiedliche Symbole mit beiden Händen genommen werden. Gewinnt eine Hand, scheidet diese aus. Die letzte Hand bezahlt. Wichtig ist beim Spielen immer Kreiz-Deifi Delüx zu sagen.</p>
+        </div>
+
+        <!-- Variant 17 -->
+        <div class="variant-container">
+            <h2>Die Mühle</h2>
+            <img src="Die%20Muehle.jpeg" alt="Die Muehle">
+            <p>Die Hände werden in Stein Form gestapelt. Anstelle des üblichen „Schere, Stein, Papier“, sagen die Spieler „Kaffee reiben, Kaffee reiben, Schere, Stein, Papier“ und zeigen ihr gewähltes Symbol. Die Entscheidung erfolgt von der untersten Hand nach oben. Die Hand, die gewinnt, bleibt im Spiel, während die Verlierer-Hand ausscheidet (Switcher).</p>
+        </div>
+    </div>
+    <h2 class="additional-variants-title">Weitere Varianten</h2>
+    <div class="additional-variants">
+        <!-- Additional variant 1 -->
+        <div class="additional-variant-container">
+            <h2>Die Velden Edition</h2>
+            <img src="Die%20Velden%20Edition-min.jpg" alt="Die Velden Edition">
+            <p>Normales SSP aber es muss eine Runde über 80 Euro bezahlt werden.</p>
+        </div>
+        <!-- Additional variant 2 -->
+        <div class="additional-variant-container">
+            <h2>Die Distanzrunde</h2>
+            <img src="Die%20Distanzrunde-min.JPG" alt="Die Distanzrunde">
+            <p>Irgendjemanden aus der Kontaktliste anrufen der eine Runde bezahlt. Es ist auch möglich in verschiedenen Räumen über Videocall zu spielen.</p>
+        </div>
+        <!-- Additional variant 3 -->
+        <div class="additional-variant-container">
+            <h2>Das Duell</h2>
+            <img src="Das%20Duell%201-min.JPG" alt="Das Duell">
+            <p>3 Schritte auseinander gehen und los. Ruckartig umdrehen und Symbol zeigen.</p>
+        </div>
+        <!-- Additional variant 4 -->
+        <div class="additional-variant-container">
+            <h2>SCHERE Stein - Das Duell (Die Legende)</h2>
+            <img src="SCHERE%20Stein-min.JPG" alt="SCHERE Stein">
+            <p>SSP nur ohne Papier.</p>
+        </div>
+        <!-- Additional variant 5 -->
+        <div class="additional-variant-container">
+            <h2>Der Ägypter</h2>
+            <p>Doppeltes Schnittmesser, Papyrusrolle und eckiger Brocken.</p>
+        </div>
+    </div>
+</body>
+</html>
